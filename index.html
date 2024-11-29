@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Click Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); /* Gradient background */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #ff4757; /* Bold title color */
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease;
+            border-left: 8px solid #ff4757; /* Accent border */
+        }
+        .container:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="radio"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #ff4757; /* Border color */
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus {
+            border-color: #50fa7b; /* Focus color */
+            outline: none;
+        }
+        input[type="radio"] {
+            width: auto;
+        }
+        input[type="submit"] {
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background-color: #ff6b81; /* Lighter hover color */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+        .gender-label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .gender-container {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 2px solid #ff4757; /* Border color */
+            border-radius: 6px;
+            background-color: #ffeef8; /* Light background for gender selection */
+        }
+        .gender-label input {
+            margin-right: 5px; /* Space between radio and label */
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            input[type="submit"] {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Ad Click Prediction</h1>
+    <div class="container">
+        <form action="/predict" method="POST">
+            <label for="daily_time_spent">Daily Time Spent on Site:</label>
+            <input type="text" name="daily_time_spent" required>
+
+            <label for="age">Age:</label>
+            <input type="text" name="age" required>
+
+            <label for="area_income">Area Income:</label>
+            <input type="text" name="area_income" required>
+
+            <label for="daily_internet_usage">Daily Internet Usage:</label>
+            <input type="text" name="daily_internet_usage" required>
+
+            <label for="ad_topic_line">Ad Topic Line:</label>
+            <input type="text" name="ad_topic_line" required>
+
+            <label for="city">City:</label>
+            <input type="text" name="city" required>
+
+            <label for="country">Country:</label>
+            <input type="text" name="country" required>
+
+            <div class="gender-container">
+                <label>Gender:</label>
+                <label class="gender-label"><input type="radio" name="male" value="1" required> Male</label>
+                <label class="gender-label"><input type="radio" name="male" value="0"> Female</label>
+            </div>
+
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</body>
+</html>
